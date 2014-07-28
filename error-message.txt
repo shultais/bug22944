@@ -1,0 +1,26 @@
+(22944)localhost:bug22944 nikita$ python manage.py migrate books
+Operations to perform:
+  Apply all migrations: books
+Running migrations:
+  Applying books.0002_book_author...Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/core/management/__init__.py", line 385, in execute_from_command_line
+    utility.execute()
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/core/management/__init__.py", line 377, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/core/management/base.py", line 288, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/core/management/base.py", line 337, in execute
+    output = self.handle(*args, **options)
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/core/management/commands/migrate.py", line 160, in handle
+    executor.migrate(targets, plan, fake=options.get("fake", False))
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/db/migrations/executor.py", line 63, in migrate
+    self.apply_migration(migration, fake=fake)
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/db/migrations/executor.py", line 91, in apply_migration
+    if self.detect_soft_applied(migration):
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/db/migrations/executor.py", line 135, in detect_soft_applied
+    apps = project_state.render()
+  File "/private/var/www/virtualenv/22944/lib/python2.7/site-packages/django/db/migrations/state.py", line 89, in render
+    model=lookup_model,
+ValueError: Lookup failed for model referenced by field books.Book.author: authors.Author
